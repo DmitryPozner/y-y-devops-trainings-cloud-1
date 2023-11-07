@@ -9,5 +9,5 @@ RUN CGO_ENABLED=0 go build -o /app/main
 
 FROM gcr.io/distroless/static-debian12:latest-amd64                      
 COPY --from=builder /app/main /app/main            
-EXPOSE 8080
+EXPOSE 8080 9090
 CMD ["/app/main"]

@@ -9,14 +9,14 @@ terraform {
 
 provider "yandex" {
   service_account_key_file = "./tf_key.json"
-  folder_id                = local.folder_id
-  zone                     = "ru-central1-a"
+  folder_id                = "b1gudftn90gk7phlf79h" 
+  zone                     = "ru-central1-b"
 }
 
 resource "yandex_vpc_network" "foo" {}
 
 resource "yandex_vpc_subnet" "foo" {
-  zone           = "ru-central1-a"
+  zone           = "ru-central1-b"
   network_id     = yandex_vpc_network.foo.id
   v4_cidr_blocks = ["10.5.0.0/24"]
 }
