@@ -21,16 +21,16 @@ resource "yandex_vpc_subnet" "foo" {
   v4_cidr_blocks = ["10.5.0.0/24"]
 }
 
-resource "yandex_container_registry" "registry1" {
-  name = "registry1"
+resource "yandex_container_registry" "catgpt-myregistry" {
+  name = "catgpt-myregistry"
 }
 
 locals {
-  folder_id = "<INSERT YOUR FOLDER ID>"
+  folder_id = "b1gudftn90gk7phlf79h"
   service-accounts = toset([
-    "catgpt-sa",
+    "test-acc-2",
   ])
-  catgpt-sa-roles = toset([
+  test-acc-roles = toset([
     "container-registry.images.puller",
     "monitoring.editor",
   ])
@@ -39,10 +39,10 @@ resource "yandex_iam_service_account" "service-accounts" {
   for_each = local.service-accounts
   name     = each.key
 }
-resource "yandex_resourcemanager_folder_iam_member" "catgpt-roles" {
-  for_each  = local.catgpt-sa-roles
+resource "yandex_resourcemanager_folder_iam_member" "test-acc-roles" {
+  for_each  = local.test-acc-roles
   folder_id = local.folder_id
-  member    = "serviceAccount:${yandex_iam_service_account.service-accounts["catgpt-sa"].id}"
+  member    = "serviceAccount:${yandex_iam_service_account.service-accounts["test-acc-2"].id}"
   role      = each.key
 }
 
@@ -51,7 +51,7 @@ data "yandex_compute_image" "coi" {
 }
 resource "yandex_compute_instance" "catgpt-1" {
     platform_id        = "standard-v2"
-    service_account_id = yandex_iam_service_account.service-accounts["catgpt-sa"].id
+    service_account_id = yandex_iam_service_account.service-accounts["test-acc-2"].id
     resources {
       cores         = 2
       memory        = 1
