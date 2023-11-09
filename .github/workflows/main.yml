@@ -28,3 +28,4 @@ jobs:
         run: |
           docker build -t ${{ secrets.DOCKER_IMG }} ./catgpt
           docker push cr.yandex/${{ secrets.REGISTRY_NAME }}/${{ secrets.DOCKER_IMG }}:latest 
+          
