@@ -1,4 +1,4 @@
-ame: CI of docker
+name: CI of docker
 on:
   push:
     branches: [ main ]     
