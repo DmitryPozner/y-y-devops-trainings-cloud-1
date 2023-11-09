@@ -34,3 +34,4 @@ jobs:
           docker push cr.yandex/${{ secrets.REGISTRY_NAME }}/${{ secrets.DOCKER_IMG }}:{{ $IMAGE_TAG }}
           
           
+          
