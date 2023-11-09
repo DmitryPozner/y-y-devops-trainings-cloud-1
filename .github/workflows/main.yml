@@ -24,10 +24,13 @@ jobs:
         uses: docker/setup-buildx-action@v1             
        
           
-      - name: Сборка и пуш
+      - name: Build and push
+        env:
+          DOCKER_IMG: cat-gpt-2
+          IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t ${{ secrets.DOCKER_IMG }} ./catgpt
-          docker tag ${{ secrets.DOCKER_IMG }}  cr.yandex/${{ secrets.REGISTRY_NAME }}/${{ secrets.DOCKER_IMG }}:ver2
-          docker push cr.yandex/${{ secrets.REGISTRY_NAME }}/${{ secrets.DOCKER_IMG }}:ver2
+          # docker tag ${{ secrets.DOCKER_IMG }}  cr.yandex/${{ secrets.REGISTRY_NAME }}/${{ secrets.DOCKER_IMG }}:{{ $IMAGE_TAG }}
+          docker push cr.yandex/${{ secrets.REGISTRY_NAME }}/${{ secrets.DOCKER_IMG }}:{{ $IMAGE_TAG }}
           
           
