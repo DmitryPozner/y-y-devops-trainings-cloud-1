@@ -25,13 +25,11 @@ jobs:
        
           
       - name: Build and push
-        env:
-          DOCKER_IMG: catgpt
-          
+                 
         run: |
-          docker build -t $DOCKER_IMG ./catgpt
-          # docker tag ${{ secrets.DOCKER_IMG }}  cr.yandex/${{ secrets.REGISTRY_NAME }}/$DOCKER_IMG
-          docker push cr.yandex/${{ secrets.REGISTRY_NAME }}/$DOCKER_IMG
+          docker build -t ${{ secrets.DOCKER_IMG }} ./catgpt
+          docker tag ${{ secrets.DOCKER_IMG }}  cr.yandex/${{ secrets.REGISTRY_NAME }}/$DOCKER_IMG:latest
+          docker push cr.yandex/${{ secrets.REGISTRY_NAME }}/${{ secrets.DOCKER_IMG }}:latest
           
           
           
