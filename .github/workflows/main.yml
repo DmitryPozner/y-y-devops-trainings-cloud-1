@@ -1,4 +1,4 @@
-name: CI of docker
+ame: CI of docker
 on:
   push:
     branches: [ main ]     
@@ -30,6 +30,6 @@ jobs:
           context: .
           push: true
           tags: cr.yandex/${{ secrets.REGISTRY_NAME }}/${{ secrets.DOCKER_IMG }}:latest
-          path: ../catgpt/Dockerfile
+          path: ./catgpt
         
            
