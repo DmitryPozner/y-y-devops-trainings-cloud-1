@@ -31,7 +31,7 @@ jobs:
         run: |
           docker build -t $DOCKER_IMG ./catgpt
           # docker tag ${{ secrets.DOCKER_IMG }}  cr.yandex/${{ secrets.REGISTRY_NAME }}/$DOCKER_IMG
-          docker push cr.yandex/${{ secrets.REGISTRY_NAME }}/${{ secrets.DOCKER_IMG }}
+          docker push cr.yandex/${{ secrets.REGISTRY_NAME }}/$DOCKER_IMG
           
           
           
