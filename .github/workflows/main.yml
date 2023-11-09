@@ -27,11 +27,11 @@ jobs:
       - name: Build and push
         env:
           DOCKER_IMG: cat-gpt-2
-          IMAGE_TAG: ${{ github.sha }}
+          
         run: |
           docker build -t $DOCKER_IMG ./catgpt
-          # docker tag ${{ secrets.DOCKER_IMG }}  cr.yandex/${{ secrets.REGISTRY_NAME }}/$DOCKER_IMG:$IMAGE_TAG
-          docker push cr.yandex/${{ secrets.REGISTRY_NAME }}/${{ secrets.DOCKER_IMG }}:$IMAGE_TAG
+          # docker tag ${{ secrets.DOCKER_IMG }}  cr.yandex/${{ secrets.REGISTRY_NAME }}/$DOCKER_IMG
+          docker push cr.yandex/${{ secrets.REGISTRY_NAME }}/${{ secrets.DOCKER_IMG }}
           
           
           
