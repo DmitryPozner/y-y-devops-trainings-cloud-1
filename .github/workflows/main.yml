@@ -34,4 +34,4 @@ jobs:
         
       - name: Build and push Docker image2
         run: |
-          docker buildx build --platform linux/amd64 --push -t cr.yandex/${{ secrets.REGISTRY_NAME }}/${{ secrets.DOCKER_IMG }}:latest ./catgpt
+          docker push -t cr.yandex/${{ secrets.REGISTRY_NAME }}/${{ secrets.DOCKER_IMG }}:latest ./catgpt
