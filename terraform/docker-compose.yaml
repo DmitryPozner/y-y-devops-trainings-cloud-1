@@ -6,7 +6,7 @@ services:
     image: "cr.yandex/$REGISTRY_ID/catgpt:1"
     restart: always
     network_mode: "host"
-  unifiedagent:
+  # unifiedagent:
     # container_name: unifiedagent
     # image: "cr.yandex/yc/unified-agent"
     # environment:

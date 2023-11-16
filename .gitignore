@@ -20,4 +20,4 @@
 # Go workspace file
 go.work
 
-tf_key.json
+/terraform/tf_key.json
