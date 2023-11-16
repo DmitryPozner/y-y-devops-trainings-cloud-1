@@ -145,6 +145,7 @@ resource "yandex_compute_instance_group" "catgpt" {
     max_deleting    = 2
   }
 }
+###########3
 
 resource "yandex_lb_network_load_balancer" "lb-catgpt" {
   name = "catgpt"
